@@ -1,4 +1,5 @@
 import string
+import sys
 
 def text_analyzer(*args):
     p = ''
@@ -12,17 +13,6 @@ def text_analyzer(*args):
     try:
         p = int(args[0])
         print("Argument provided is not a String.")
-        #for i in range(0, len(s) - 1):
-            #t = s[i];
-            #if (t.isupper()):
-             #   upper_l += 1
-            #elif(t.islower()):
-            #    lower_l += 1
-           # elif(t == " "):
-          #      spaces += 1
-          #  else:
-         #       punc_mark += 1
-        #printf ("Lower letters: %i \n Caps: %i", lower_l, upper_l)
     except:
         print("Argument provided is a String.")
         s = str(p)
@@ -42,4 +32,16 @@ def text_analyzer(*args):
             elif(t in string.punctuation):
                 punc_mark += 1
             chars = i;
-        print ("Total characters: " + str(chars + 1) + ".\n" + "Lower letters: " + str(lower_l) +".\n" + "Upper letters: " + str(upper_l) + ".\n" + "Spaces: " + str(spaces) + ".\n" + "Punctuation mark: " + str(punc_mark) + ".")
+        print ("Total characters: " + str(chars + 1) + ".\n" +
+                "Lower letters: " + str(lower_l) +".\n" +
+                "Upper letters: " + str(upper_l) + ".\n" +
+                "Spaces: " + str(spaces) + ".\n" +
+                "Punctuation mark: " + str(punc_mark) + ".")
+
+if __name__ == '__main__':
+    if (len(sys.argv) == 2):
+        text_analyzer(sys.argv[1])
+    elif(len(sys.argv) == 1):
+        text_analyzer()
+    else:
+        print ("Too many arguments")
